@@ -31,6 +31,31 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiManagement", "ApiManagem
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ServiceFabric", "ServiceFabric", "{4821845D-3630-405A-AE29-BC2D5D63088F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureKeyVault", "AzureKeyVault\AzureKeyVault.csproj", "{6ED1750A-538C-4335-A267-E4383AAE3673}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MVCWeb", "MVCWeb\", "{EF925C02-B413-4838-8B42-840F19BBC5EF}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_54755"
+		Debug.AspNetCompiler.PhysicalPath = "MVCWeb\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_54755\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_54755"
+		Release.AspNetCompiler.PhysicalPath = "MVCWeb\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_54755\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "54755"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{F5034706-568F-408A-B7B3-4D38C6DB8A32}") = "AzureRM", "AzureRM\AzureRM.pssproj", "{6CAFC0C6-A428-4D30-A9F9-700E829FEA51}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +78,18 @@ Global
 		{47A93907-108B-4C67-93B0-3544BC4AADC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47A93907-108B-4C67-93B0-3544BC4AADC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47A93907-108B-4C67-93B0-3544BC4AADC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6ED1750A-538C-4335-A267-E4383AAE3673}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6ED1750A-538C-4335-A267-E4383AAE3673}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6ED1750A-538C-4335-A267-E4383AAE3673}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6ED1750A-538C-4335-A267-E4383AAE3673}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF925C02-B413-4838-8B42-840F19BBC5EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF925C02-B413-4838-8B42-840F19BBC5EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF925C02-B413-4838-8B42-840F19BBC5EF}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF925C02-B413-4838-8B42-840F19BBC5EF}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{6CAFC0C6-A428-4D30-A9F9-700E829FEA51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CAFC0C6-A428-4D30-A9F9-700E829FEA51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CAFC0C6-A428-4D30-A9F9-700E829FEA51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CAFC0C6-A428-4D30-A9F9-700E829FEA51}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -68,6 +105,9 @@ Global
 		{194F1950-A7B9-4FCA-96B0-E759E8E47755} = {CF7DC023-80C6-4791-B784-9507320E8991}
 		{C71E9E69-66B7-45DC-9F5E-7B562B4E19E0} = {CF7DC023-80C6-4791-B784-9507320E8991}
 		{4821845D-3630-405A-AE29-BC2D5D63088F} = {CF7DC023-80C6-4791-B784-9507320E8991}
+		{6ED1750A-538C-4335-A267-E4383AAE3673} = {AB0131BA-4947-4109-BA74-D13D0FBF74EE}
+		{EF925C02-B413-4838-8B42-840F19BBC5EF} = {C71E9E69-66B7-45DC-9F5E-7B562B4E19E0}
+		{6CAFC0C6-A428-4D30-A9F9-700E829FEA51} = {B4D2BAE8-CFBA-41F2-9666-868458235B6D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A698A2D6-A7C1-4FB2-83D0-35CA61FA381B}
