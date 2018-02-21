@@ -11,14 +11,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IdentityAndManagedServices"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AzureWebMobileAndCompute", "AzureWebMobileAndCompute", "{CF7DC023-80C6-4791-B784-9507320E8991}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StorageBlobsAndFiles", "StorageBlobsAndFiles\StorageBlobsAndFiles.csproj", "{A0EDD586-74B9-4784-824A-22D4A0CD9C1B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StorageTablesQueuesAndCosmosDB", "StorageTablesQueuesAndCosmosDB\StorageTablesQueuesAndCosmosDB.csproj", "{F2C5F507-F204-490E-A48D-44DE091DEA16}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLAndCosmosDB", "SQLAndCosmosDB\SQLAndCosmosDB.csproj", "{75BE703A-7323-4149-8EE6-89BE270872ED}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureSearchAndRedisCaching", "AzureSearchAndRedisCaching\AzureSearchAndRedisCaching.csproj", "{47A93907-108B-4C67-93B0-3544BC4AADC5}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AzureFunctions", "AzureFunctions", "{B37FDE85-0473-45AD-BBB8-1B4BBFCF317F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApps", "WebApps", "{60241152-2DBF-4F68-A740-F1587C0EAA95}"
@@ -31,7 +23,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiManagement", "ApiManagem
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ServiceFabric", "ServiceFabric", "{4821845D-3630-405A-AE29-BC2D5D63088F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureKeyVault", "AzureKeyVault\AzureKeyVault.csproj", "{6ED1750A-538C-4335-A267-E4383AAE3673}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureKeyVault", "AzureKeyVault\AzureKeyVault.csproj", "{6ED1750A-538C-4335-A267-E4383AAE3673}"
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MVCWeb", "MVCWeb\", "{EF925C02-B413-4838-8B42-840F19BBC5EF}"
 	ProjectSection(WebsiteProperties) = preProject
@@ -56,28 +48,34 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MVCWeb", "MVCWeb\", "{EF925
 EndProject
 Project("{F5034706-568F-408A-B7B3-4D38C6DB8A32}") = "AzureRM", "AzureRM\AzureRM.pssproj", "{6CAFC0C6-A428-4D30-A9F9-700E829FEA51}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ARMTemplates", "ARMTemplates", "{668012F5-9326-4B9E-B717-26FA65B8D09A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LoadBalancer", "LoadBalancer", "{BBDF85F1-57DB-424E-88A0-636CDF9D55BD}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Downloads\ExportedTemplate-ToBeDeletedFeb1\deploy.ps1 = ..\..\..\Downloads\ExportedTemplate-ToBeDeletedFeb1\deploy.ps1
+		..\..\..\Downloads\ExportedTemplate-ToBeDeletedFeb1\deploy.sh = ..\..\..\Downloads\ExportedTemplate-ToBeDeletedFeb1\deploy.sh
+		..\..\..\Downloads\ExportedTemplate-ToBeDeletedFeb1\deployer.rb = ..\..\..\Downloads\ExportedTemplate-ToBeDeletedFeb1\deployer.rb
+		..\..\..\Downloads\ExportedTemplate-ToBeDeletedFeb1\DeploymentHelper.cs = ..\..\..\Downloads\ExportedTemplate-ToBeDeletedFeb1\DeploymentHelper.cs
+		..\..\..\Downloads\ExportedTemplate-ToBeDeletedFeb1\parameters.json = ..\..\..\Downloads\ExportedTemplate-ToBeDeletedFeb1\parameters.json
+		..\..\..\Downloads\ExportedTemplate-ToBeDeletedFeb1\template.json = ..\..\..\Downloads\ExportedTemplate-ToBeDeletedFeb1\template.json
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlobsAndFiles", "BlobsAndFiles\BlobsAndFiles.csproj", "{CC44AECD-1E9C-4F63-89D2-833B9DE0E2A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StorageTablesQueuesAndCosmosDB", "StorageTablesQueuesAndCosmosDB\StorageTablesQueuesAndCosmosDB.csproj", "{B2A0C2F9-37DD-48CA-9305-60C006753A23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLAndCosmosDB", "SQLAndCosmosDB\SQLAndCosmosDB.csproj", "{8677CF7B-A15F-43B0-A4C0-8112306FBFD8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisCaching", "RedisCaching\RedisCaching.csproj", "{2A554D3C-723A-41DD-B985-D920F50AD48D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureSearch", "AzureSearch\AzureSearch.csproj", "{792592D4-29F3-4357-B269-F27586840B4F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A0EDD586-74B9-4784-824A-22D4A0CD9C1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A0EDD586-74B9-4784-824A-22D4A0CD9C1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A0EDD586-74B9-4784-824A-22D4A0CD9C1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A0EDD586-74B9-4784-824A-22D4A0CD9C1B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F2C5F507-F204-490E-A48D-44DE091DEA16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F2C5F507-F204-490E-A48D-44DE091DEA16}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F2C5F507-F204-490E-A48D-44DE091DEA16}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F2C5F507-F204-490E-A48D-44DE091DEA16}.Release|Any CPU.Build.0 = Release|Any CPU
-		{75BE703A-7323-4149-8EE6-89BE270872ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{75BE703A-7323-4149-8EE6-89BE270872ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{75BE703A-7323-4149-8EE6-89BE270872ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{75BE703A-7323-4149-8EE6-89BE270872ED}.Release|Any CPU.Build.0 = Release|Any CPU
-		{47A93907-108B-4C67-93B0-3544BC4AADC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{47A93907-108B-4C67-93B0-3544BC4AADC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{47A93907-108B-4C67-93B0-3544BC4AADC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{47A93907-108B-4C67-93B0-3544BC4AADC5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6ED1750A-538C-4335-A267-E4383AAE3673}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6ED1750A-538C-4335-A267-E4383AAE3673}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6ED1750A-538C-4335-A267-E4383AAE3673}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -90,15 +88,31 @@ Global
 		{6CAFC0C6-A428-4D30-A9F9-700E829FEA51}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CAFC0C6-A428-4D30-A9F9-700E829FEA51}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6CAFC0C6-A428-4D30-A9F9-700E829FEA51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC44AECD-1E9C-4F63-89D2-833B9DE0E2A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC44AECD-1E9C-4F63-89D2-833B9DE0E2A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC44AECD-1E9C-4F63-89D2-833B9DE0E2A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC44AECD-1E9C-4F63-89D2-833B9DE0E2A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2A0C2F9-37DD-48CA-9305-60C006753A23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2A0C2F9-37DD-48CA-9305-60C006753A23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2A0C2F9-37DD-48CA-9305-60C006753A23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2A0C2F9-37DD-48CA-9305-60C006753A23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8677CF7B-A15F-43B0-A4C0-8112306FBFD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8677CF7B-A15F-43B0-A4C0-8112306FBFD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8677CF7B-A15F-43B0-A4C0-8112306FBFD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8677CF7B-A15F-43B0-A4C0-8112306FBFD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A554D3C-723A-41DD-B985-D920F50AD48D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A554D3C-723A-41DD-B985-D920F50AD48D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A554D3C-723A-41DD-B985-D920F50AD48D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A554D3C-723A-41DD-B985-D920F50AD48D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{792592D4-29F3-4357-B269-F27586840B4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{792592D4-29F3-4357-B269-F27586840B4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{792592D4-29F3-4357-B269-F27586840B4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{792592D4-29F3-4357-B269-F27586840B4F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{A0EDD586-74B9-4784-824A-22D4A0CD9C1B} = {A8A57DFC-81F6-4A1A-9D45-BC566B5A0CCC}
-		{F2C5F507-F204-490E-A48D-44DE091DEA16} = {A8A57DFC-81F6-4A1A-9D45-BC566B5A0CCC}
-		{75BE703A-7323-4149-8EE6-89BE270872ED} = {A8A57DFC-81F6-4A1A-9D45-BC566B5A0CCC}
-		{47A93907-108B-4C67-93B0-3544BC4AADC5} = {A8A57DFC-81F6-4A1A-9D45-BC566B5A0CCC}
 		{B37FDE85-0473-45AD-BBB8-1B4BBFCF317F} = {CF7DC023-80C6-4791-B784-9507320E8991}
 		{60241152-2DBF-4F68-A740-F1587C0EAA95} = {CF7DC023-80C6-4791-B784-9507320E8991}
 		{5ED96949-ACCD-46CD-BCDD-CD09AC95792A} = {CF7DC023-80C6-4791-B784-9507320E8991}
@@ -108,6 +122,13 @@ Global
 		{6ED1750A-538C-4335-A267-E4383AAE3673} = {AB0131BA-4947-4109-BA74-D13D0FBF74EE}
 		{EF925C02-B413-4838-8B42-840F19BBC5EF} = {C71E9E69-66B7-45DC-9F5E-7B562B4E19E0}
 		{6CAFC0C6-A428-4D30-A9F9-700E829FEA51} = {B4D2BAE8-CFBA-41F2-9666-868458235B6D}
+		{668012F5-9326-4B9E-B717-26FA65B8D09A} = {B4D2BAE8-CFBA-41F2-9666-868458235B6D}
+		{BBDF85F1-57DB-424E-88A0-636CDF9D55BD} = {668012F5-9326-4B9E-B717-26FA65B8D09A}
+		{CC44AECD-1E9C-4F63-89D2-833B9DE0E2A5} = {A8A57DFC-81F6-4A1A-9D45-BC566B5A0CCC}
+		{B2A0C2F9-37DD-48CA-9305-60C006753A23} = {A8A57DFC-81F6-4A1A-9D45-BC566B5A0CCC}
+		{8677CF7B-A15F-43B0-A4C0-8112306FBFD8} = {A8A57DFC-81F6-4A1A-9D45-BC566B5A0CCC}
+		{2A554D3C-723A-41DD-B985-D920F50AD48D} = {AB0131BA-4947-4109-BA74-D13D0FBF74EE}
+		{792592D4-29F3-4357-B269-F27586840B4F} = {AB0131BA-4947-4109-BA74-D13D0FBF74EE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A698A2D6-A7C1-4FB2-83D0-35CA61FA381B}

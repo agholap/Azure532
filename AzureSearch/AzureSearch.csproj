@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8677CF7B-A15F-43B0-A4C0-8112306FBFD8}</ProjectGuid>
+    <ProjectGuid>{792592D4-29F3-4357-B269-F27586840B4F}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>SQLAndCosmosDB</RootNamespace>
-    <AssemblyName>SQLAndCosmosDB</AssemblyName>
+    <RootNamespace>AzureSearch</RootNamespace>
+    <AssemblyName>AzureSearch</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B2A0C2F9-37DD-48CA-9305-60C006753A23}</ProjectGuid>
+    <ProjectGuid>{CC44AECD-1E9C-4F63-89D2-833B9DE0E2A5}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>StorageTablesQueuesAndCosmosDB</RootNamespace>
-    <AssemblyName>StorageTablesQueuesAndCosmosDB</AssemblyName>
+    <RootNamespace>BlobsAndFiles</RootNamespace>
+    <AssemblyName>BlobsAndFiles</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8677CF7B-A15F-43B0-A4C0-8112306FBFD8}</ProjectGuid>
+    <ProjectGuid>{2A554D3C-723A-41DD-B985-D920F50AD48D}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>SQLAndCosmosDB</RootNamespace>
-    <AssemblyName>SQLAndCosmosDB</AssemblyName>
+    <RootNamespace>RedisCaching</RootNamespace>
+    <AssemblyName>RedisCaching</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

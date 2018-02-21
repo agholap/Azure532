@@ -27,6 +27,7 @@
   </PropertyGroup>
   <ItemGroup />
   <ItemGroup>
+    <Compile Include="AzureRMTables.ps1" />
     <Compile Include="AzureRMVMWithAVandLB.ps1" />
     <Compile Include="AzureRMVMWithAvaillablitySet.ps1" />
   </ItemGroup>
