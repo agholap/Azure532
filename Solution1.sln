@@ -43,22 +43,11 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MVCWeb", "MVCWeb\", "{EF925
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "54755"
+		SlnRelativePath = "MVCWeb\"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
 Project("{F5034706-568F-408A-B7B3-4D38C6DB8A32}") = "AzureRM", "AzureRM\AzureRM.pssproj", "{6CAFC0C6-A428-4D30-A9F9-700E829FEA51}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ARMTemplates", "ARMTemplates", "{668012F5-9326-4B9E-B717-26FA65B8D09A}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LoadBalancer", "LoadBalancer", "{BBDF85F1-57DB-424E-88A0-636CDF9D55BD}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\..\Downloads\ExportedTemplate-ToBeDeletedFeb1\deploy.ps1 = ..\..\..\Downloads\ExportedTemplate-ToBeDeletedFeb1\deploy.ps1
-		..\..\..\Downloads\ExportedTemplate-ToBeDeletedFeb1\deploy.sh = ..\..\..\Downloads\ExportedTemplate-ToBeDeletedFeb1\deploy.sh
-		..\..\..\Downloads\ExportedTemplate-ToBeDeletedFeb1\deployer.rb = ..\..\..\Downloads\ExportedTemplate-ToBeDeletedFeb1\deployer.rb
-		..\..\..\Downloads\ExportedTemplate-ToBeDeletedFeb1\DeploymentHelper.cs = ..\..\..\Downloads\ExportedTemplate-ToBeDeletedFeb1\DeploymentHelper.cs
-		..\..\..\Downloads\ExportedTemplate-ToBeDeletedFeb1\parameters.json = ..\..\..\Downloads\ExportedTemplate-ToBeDeletedFeb1\parameters.json
-		..\..\..\Downloads\ExportedTemplate-ToBeDeletedFeb1\template.json = ..\..\..\Downloads\ExportedTemplate-ToBeDeletedFeb1\template.json
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlobsAndFiles", "BlobsAndFiles\BlobsAndFiles.csproj", "{CC44AECD-1E9C-4F63-89D2-833B9DE0E2A5}"
 EndProject
@@ -122,8 +111,6 @@ Global
 		{6ED1750A-538C-4335-A267-E4383AAE3673} = {AB0131BA-4947-4109-BA74-D13D0FBF74EE}
 		{EF925C02-B413-4838-8B42-840F19BBC5EF} = {C71E9E69-66B7-45DC-9F5E-7B562B4E19E0}
 		{6CAFC0C6-A428-4D30-A9F9-700E829FEA51} = {B4D2BAE8-CFBA-41F2-9666-868458235B6D}
-		{668012F5-9326-4B9E-B717-26FA65B8D09A} = {B4D2BAE8-CFBA-41F2-9666-868458235B6D}
-		{BBDF85F1-57DB-424E-88A0-636CDF9D55BD} = {668012F5-9326-4B9E-B717-26FA65B8D09A}
 		{CC44AECD-1E9C-4F63-89D2-833B9DE0E2A5} = {A8A57DFC-81F6-4A1A-9D45-BC566B5A0CCC}
 		{B2A0C2F9-37DD-48CA-9305-60C006753A23} = {A8A57DFC-81F6-4A1A-9D45-BC566B5A0CCC}
 		{8677CF7B-A15F-43B0-A4C0-8112306FBFD8} = {A8A57DFC-81F6-4A1A-9D45-BC566B5A0CCC}

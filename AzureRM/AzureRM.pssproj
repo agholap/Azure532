@@ -25,7 +25,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Templates\" />
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="AzureRMTables.ps1" />
     <Compile Include="AzureRMVMWithAVandLB.ps1" />
