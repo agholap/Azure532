@@ -42,6 +42,7 @@ New-AzureRmStorageAccountKey -ResourceGroupName $ResourceGroupName `
 
   Add-StorageTableRow -table $customer -partitionKey $partition1 -rowKey("WA") -property @{"username"="Justin";"userid"=3}
 
+  #view all data
   Get-AzureStorageTableRowAll -table $customer | ft
 
 
