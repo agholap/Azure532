@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Azure;
-using Microsoft.Azure.Storage;
-using Microsoft.Azure.CosmosDB;
 using Microsoft.Azure.CosmosDB.Table;
 using StorageTablesQueuesAndCosmosDB.Entity;
+using Microsoft.WindowsAzure.Storage.Queue;
+using Microsoft.WindowsAzure.Storage;
+using Newtonsoft.Json;
 //reference - https://docs.microsoft.com/en-us/azure/cosmos-db/table-storage-how-to-use-dotnet
 //create free cosmosdb here - https://azure.microsoft.com/en-us/try/cosmosdb/
 namespace StorageTablesQueuesAndCosmosDB
@@ -16,14 +17,22 @@ namespace StorageTablesQueuesAndCosmosDB
     {
         static void Main(string[] args)
         {
-             var table =  GetCosmostDBTable();
+            #region "Tables"
+            //var table =  GetCosmostDBTable();
+            ////var table =  CallAzureTable();
+            ////InsertEntity(table);
+            //InsertBatch(table);
+            //RetrieveAll(table);
+            #endregion
 
-            //var table =  CallAzureTable();
-            //InsertEntity(table);
-            InsertBatch(table);
-            RetrieveAll(table);
+            #region Queue
+            var queue = GetCloudQueue();
+            AddRemoveMessageToQueue(queue);
+
+            #endregion
         }
 
+        #region "Helper for Azure Tables"
         static void RetrieveAll(CloudTable table)
         {
             TableQuery<Customer> query = new TableQuery<Customer>().Where(
@@ -65,25 +74,75 @@ namespace StorageTablesQueuesAndCosmosDB
         }
         static CloudTable GetCosmostDBTable()
         {
-            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("CosmosDB"));
-            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+            Microsoft.Azure.Storage.CloudStorageAccount storageAccount = Microsoft.Azure.Storage.CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("CosmosDB"));
+            Microsoft.Azure.CosmosDB.Table.CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
             CloudTable table = tableClient.GetTableReference("customers");
             //cleanup
             table.DeleteIfExists();
             table.CreateIfNotExists();
             return table;
         }
-        static CloudTable GetAzureTable()
+        static Microsoft.WindowsAzure.Storage.Table.CloudTable GetAzureTable()
+        {
+            Microsoft.WindowsAzure.Storage.CloudStorageAccount storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageAccount"));
+            //create cloud table client
+            Microsoft.WindowsAzure.Storage.Table.CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+            //get cloud table
+            Microsoft.WindowsAzure.Storage.Table.CloudTable table = tableClient.GetTableReference("customers");
+            //cleanup
+            table.DeleteIfExists();
+            table.CreateIfNotExists();
+            return table;
+        }
+        #endregion
+
+        #region "Helpers for Azure Queue"
+        static CloudQueue GetCloudQueue()
         {
             CloudStorageAccount storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageAccount"));
-            //create cloud table client
-            CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-            //get cloud table
-            CloudTable table = tableClient.GetTableReference("customers");
+            CloudQueueClient cloudQueueClient = storageAccount.CreateCloudQueueClient();
+            //It take sometime for azure to cleanup the queue, if you are running code again and again, it may fail here. Try using different names of queue to avoid error
+            CloudQueue queue =  cloudQueueClient.GetQueueReference("customerqueue10");
             //cleanup
-            table.DeleteIfExists();
-            table.CreateIfNotExists();
-            return table;
+            queue.DeleteIfExists();
+            //create new
+            queue.CreateIfNotExists();
+            return queue;
+            
         }
+        static void AddRemoveMessageToQueue(CloudQueue queue)
+        {
+            Customer customer1 = new Customer("Warne", "Shane");
+            customer1.Email = "shane.w@adv.com";
+            //passing customer object to queue to processes
+            CloudQueueMessage message = new CloudQueueMessage(JsonConvert.SerializeObject(customer1));
+            queue.AddMessage(message);
+
+            //Peek messsage from Queue
+            var fromPeekQueue = queue.PeekMessage();
+            Console.WriteLine("from queue " + fromPeekQueue.AsString);
+            Console.ReadKey();
+            //get message and update the content
+
+            var fromQueue = queue.GetMessage();
+            var customer = JsonConvert.DeserializeObject<Customer>(fromQueue.AsString);
+            customer.Email = "update@email.com";
+            fromQueue.SetMessageContent(JsonConvert.SerializeObject(customer));
+            queue.UpdateMessage(fromQueue, TimeSpan.FromMilliseconds(1),MessageUpdateFields.Content|MessageUpdateFields.Visibility);
+            queue.FetchAttributes();
+            int? cachedMsg = queue.ApproximateMessageCount;
+            Console.WriteLine("Cached Message " + cachedMsg);
+            //Peek messsage from Queue
+           var updatedMessage = queue.GetMessage();
+            Console.WriteLine("after update " + updatedMessage != null? updatedMessage.AsString: "null");
+            Console.ReadKey();
+
+            //Process the message in less than 30 seconds, and then delete the message
+            queue.DeleteMessage(updatedMessage);
+            queue.FetchAttributes();
+           cachedMsg = queue.ApproximateMessageCount;
+            Console.WriteLine("Cached Message " + cachedMsg);
+        }
+        #endregion
     }
 }
