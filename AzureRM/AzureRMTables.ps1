@@ -12,6 +12,7 @@ $StorageType = "Standard_GRS"
 # Resource Group
 New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
 
+
 # Storage
 $StorageAccount = New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageName -Type $StorageType -Location $Location
 

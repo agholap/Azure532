@@ -18,21 +18,34 @@ namespace StorageTablesQueuesAndCosmosDB
         static void Main(string[] args)
         {
             #region "Tables"
-            //var table =  GetCosmostDBTable();
-            ////var table =  CallAzureTable();
+            var table =  GetCosmostDBTable();
+            //var table =  CallAzureTable();
+            GetDynamicEntity(table);
             ////InsertEntity(table);
             //InsertBatch(table);
             //RetrieveAll(table);
             #endregion
 
             #region Queue
-            var queue = GetCloudQueue();
-            AddRemoveMessageToQueue(queue);
+            // var queue = GetCloudQueue();
+            // AddRemoveMessageToQueue(queue);
 
             #endregion
         }
 
         #region "Helper for Azure Tables"
+        static void GetDynamicEntity(CloudTable table)
+        {
+            //Define table query 
+            TableQuery<DynamicTableEntity> projectionQuery = new TableQuery<DynamicTableEntity>().Select(new string[]{
+                "Email" });
+                EntityResolver<string> resolver = (pk,rk,ts,props, etag)=>props.ContainsKey("Email")?props["Email"].StringValue:null;
+                foreach(string email in table.ExecuteQuery(projectionQuery,resolver,null,null))
+                {
+                    Console.WriteLine(email);                    
+                }
+            Console.ReadKey();   
+        }
         static void RetrieveAll(CloudTable table)
         {
             TableQuery<Customer> query = new TableQuery<Customer>().Where(
@@ -44,7 +57,7 @@ namespace StorageTablesQueuesAndCosmosDB
             foreach (var customer in table.ExecuteQuery(query))
             {
                 Console.WriteLine("{0}, {1}\t{2}\t{3}", customer.PartitionKey, customer.RowKey,
-     customer.Email, customer.PhoneNumber);
+             customer.Email, customer.PhoneNumber);
             }
             Console.ReadKey();
         }

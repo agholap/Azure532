@@ -29,6 +29,7 @@
     <Folder Include="Templates\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AzureRMBlobs.ps1" />
     <Compile Include="AzureRMTables.ps1" />
     <Compile Include="AzureRMVMWithAVandLB.ps1" />
     <Compile Include="AzureRMVMWithAvaillablitySet.ps1" />
