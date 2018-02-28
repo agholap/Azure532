@@ -20,8 +20,8 @@ namespace RedisCaching
             cache.StringSet("Key1", "ValueforKey1");
             cache.StringSet("Key2", 10);
 
-            var key1 = cache.StringGet("Key1");
-            var key2 = (int)cache.StringGet("Key2");
+            string key1 = cache.StringGet("Key1");
+            int key2 = (int)cache.StringGet("Key2");
 
             // redis cache-aside pattern.
 
@@ -33,17 +33,17 @@ namespace RedisCaching
             var key3Check2 = cache.StringGet("Key3");
 
             string key4Check1 = cache.StringGet("Key4");
-            if (key4Check1 != null)
+            if (key4Check1 == null)
             {
                 cache.StringSet("Key4", "Set Cache Key 4");
             }
-            var key4Check2 = cache.StringGet("Key4");
+            string key4Check2 = cache.StringGet("Key4");
 
             cache.StringSet("Key5", "expire based on duration",new TimeSpan(0,0,200));
 
             cache.StringSet("Key6", JsonConvert.SerializeObject(new Employee(1, "Mark", "Law")));
 
-            var mark = JsonConvert.DeserializeObject<Employee>(cache.StringGet("Key5"));
+            var mark = JsonConvert.DeserializeObject<Employee>(cache.StringGet("Key6"));
  
         }
 
