@@ -13,13 +13,13 @@ namespace AzureFunctionAADTest
     class Program
     {
         /// The client information used to get the OAuth Access Token from the server.
-        static string clientId = "{ClientID}";//AD AppID
-        static string clientSecret = "{App Secret}";
-        static string tenantId = "{Tenant Guid}";
-        static string authUrl = "https://login.microsoftonline.com/{tenantGuid}/oauth2/token";
-        static string authority = "https://login.microsoftonline.com/{tenantGuid}/";
+        static string clientId = "10185c1d-85a1-4ce4-9324-b529d4113d80";//AD AppID
+        static string clientSecret = "SycFewOHCRF4slx1YVmZuoG92AHEBbUvuNkwEvXVYZ0=";
+        static string tenantId = "e378defb-a919-462d-ad99-c101ccff4dc6";
+        static string authUrl = "https://login.microsoftonline.com/e378defb-a919-462d-ad99-c101ccff4dc6/oauth2/token";
+        static string authority = "https://login.microsoftonline.com/e378defb-a919-462d-ad99-c101ccff4dc6/";
         // The server base address
-        static string baseUrl = "https://helloworldaad.azurewebsites.net/api/HelloWorld/AAD/Amol?code=8fFJY6K6QBoYikMtSL0UYx99gJZBiUaF0fSaoRINOOEpJ2VSSYlGDQ==";
+        static string baseUrl = "https://fnservertoserver.azurewebsites.net/api/GetDataFromCRM?name=amol";
 
         // this will hold the Access Token returned from the server.
         static string accessToken = null;
@@ -37,7 +37,7 @@ namespace AzureFunctionAADTest
             //using ADAL
             authContext = new AuthenticationContext(authority);
             clientCredential = new ClientCredential(clientId, clientSecret);
-            var result = await authContext.AcquireTokenAsync("https://helloworldaad.azurewebsites.net", clientCredential);
+            var result = await authContext.AcquireTokenAsync("https://fnservertoserver.azurewebsites.net", clientCredential);
             return result.AccessToken;
         }
         /// <summary>
@@ -80,18 +80,20 @@ namespace AzureFunctionAADTest
         {
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri(baseUrl);
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+               // client.BaseAddress = new Uri(baseUrl);
+               // client.DefaultRequestHeaders.Accept.Clear();
+                //client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
                 // Add the Authorization header with the AccessToken.
-                client.DefaultRequestHeaders.Add("Authorization", "Bearer " + accessToken);
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
 
                 // create the URL string.
                 string url = "";//string.Format("v1/Articles?page={0}&tags={1}", page, HttpUtility.UrlEncode(tags));
-
+                //HttpRequestMessage request = new HttpRequestMessage();
+                //request.RequestUri = new Uri(baseUrl);
+                
                 // make the request
-                HttpResponseMessage response = await client.GetAsync(url);
+                HttpResponseMessage response = await client.GetAsync(baseUrl);
 
                 // parse the response and return the data.
                 string jsonString = await response.Content.ReadAsStringAsync();
@@ -114,7 +116,7 @@ namespace AzureFunctionAADTest
                 postData.Add(new KeyValuePair<string, string>("grant_type", "client_credentials"));
                 postData.Add(new KeyValuePair<string, string>("client_id", clientId));
                 postData.Add(new KeyValuePair<string, string>("client_secret", clientSecret));
-                postData.Add(new KeyValuePair<string, string>("resource", "https://helloworldaad.azurewebsites.net"));
+                postData.Add(new KeyValuePair<string, string>("resource", "https://fnservertoserver.azurewebsites.net"));
 
                 FormUrlEncodedContent content = new FormUrlEncodedContent(postData);
 
