@@ -32,6 +32,8 @@
     <Compile Include="AzureRedisCache.ps1" />
     <Compile Include="Blobs.ps1" />
     <Compile Include="AzureTables.ps1" />
+    <Compile Include="DeployDsc.ps1" />
+    <Compile Include="InstallWebServer.ps1" />
     <Compile Include="VMWithAVandLB.ps1" />
     <Compile Include="VMWithOnlyAV.ps1" />
   </ItemGroup>

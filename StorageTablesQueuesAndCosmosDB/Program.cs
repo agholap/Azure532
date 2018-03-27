@@ -18,17 +18,17 @@ namespace StorageTablesQueuesAndCosmosDB
         static void Main(string[] args)
         {
             #region "Tables"
-            var table =  GetCosmostDBTable();
-            //var table =  CallAzureTable();
-            GetDynamicEntity(table);
-            ////InsertEntity(table);
-            //InsertBatch(table);
-            //RetrieveAll(table);
+            //var table =  GetCosmostDBTable();
+           // var table = GetCosmosOrAzureDBTable();
+            //GetDynamicEntity(table);
+           //InsertEntity(table);
+           //InsertBatch(table);
+          // RetrieveAll(table);
             #endregion
 
             #region Queue
-            // var queue = GetCloudQueue();
-            // AddRemoveMessageToQueue(queue);
+            var queue = GetCloudQueue();
+            AddRemoveMessageToQueue(queue);
 
             #endregion
         }
@@ -85,9 +85,10 @@ namespace StorageTablesQueuesAndCosmosDB
             tableBatchOperation.Insert(customer2);
             table.ExecuteBatch(tableBatchOperation);
         }
-        static CloudTable GetCosmostDBTable()
+
+            static CloudTable GetCosmosOrAzureDBTable()
         {
-            Microsoft.Azure.Storage.CloudStorageAccount storageAccount = Microsoft.Azure.Storage.CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("CosmosDB"));
+            Microsoft.Azure.Storage.CloudStorageAccount storageAccount = Microsoft.Azure.Storage.CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageAccount"));
             Microsoft.Azure.CosmosDB.Table.CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
             CloudTable table = tableClient.GetTableReference("customers");
             //cleanup

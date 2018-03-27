@@ -19,7 +19,7 @@ namespace myWebHook
             string name = req.GetQueryNameValuePairs()
                 .FirstOrDefault(q => string.Compare(q.Key, "name", true) == 0)
                 .Value;
-            string.Format
+            //string.Format
             // Get request body
             dynamic data = await req.Content.ReadAsAsync<object>();
 

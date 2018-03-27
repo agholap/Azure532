@@ -19,9 +19,12 @@ namespace BlobsAndFiles
             //CloudBlobClient
             CloudBlobClient cloudBlobClient = storageAccount.CreateCloudBlobClient();
             //Container
-            CloudBlobContainer cloudBlobContainer = cloudBlobClient.GetContainerReference("azurecontainer1"); 
+            CloudBlobContainer cloudBlobContainer = cloudBlobClient.GetContainerReference("azurecontainer3");
+
             //Blob
             cloudBlobContainer.CreateIfNotExists();
+
+            SetMetadata(cloudBlobContainer);
             //set permission for container
             cloudBlobContainer.SetPermissions(new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
 
@@ -32,6 +35,7 @@ namespace BlobsAndFiles
             {
                 blob.UploadFromStream(fileStream);
             }
+
             //get blob reference
             CloudBlockBlob blob2 = cloudBlobContainer.GetBlockBlobReference(@"toDownload/image2.jpeg");
 
@@ -48,7 +52,12 @@ namespace BlobsAndFiles
             {
                 blob2.DownloadToStream(fileStream);
             }
-           var directory = cloudBlobContainer.GetDirectoryReference("toDownload");
+            //get blob reference
+            CloudBlockBlob blob3copy = cloudBlobContainer.GetBlockBlobReference(@"toDownload/image2copy.jpeg");
+            var cb = new AsyncCallback(x=>Console.WriteLine("blob copy completed!!"));
+            blob3copy.BeginStartCopy(blob2, cb, null);
+
+            var directory = cloudBlobContainer.GetDirectoryReference("toDownload");
             //list all blobs
             foreach (var item in directory.ListBlobs(false))
             {               
@@ -58,6 +67,15 @@ namespace BlobsAndFiles
                     Console.WriteLine(bBlob.Uri);
                 }
             }
+        }
+
+        static void SetMetadata(CloudBlobContainer container    )
+        {
+            container.Metadata.Clear();
+            container.Metadata.Add("Name", "Amol");
+            container.Metadata.Add("createdon", DateTime.Now.ToString());
+            container.SetMetadata();
+
         }
     }
 }
